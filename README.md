@@ -27,22 +27,24 @@ npm start 启动服务器
 - [ ] 项目打包输出 -- 未完成
 
 # 项目布局
-|-- dist                                             // 项目编译打包目录
+```
+|-- dist                                             // 项目编译打包目录
 |-- src                                              // 项目源文件		
 |	|-- common                                   // 公共库
 |		|-- js                               // 公共js文件
 |			|-- init.js                  // JS初始化文件
-|			|-- render.js                 // 场景渲染
+|			|-- render.js                // 场景渲染
 |		|-- sass                             // 公共样式文件
 |			|-- index.scss               // 公共样式入口文件
-|   |-- app.js                                      // 程序入口文件，加载各种公共组件
+|   |-- app.js                                       // 程序入口文件，加载各种公共组件
 |-- static                                           // 静态文件目录
-|-- webpack.config.js                                       // webpack配置文件
+|-- webpack.config.js                                // webpack配置文件
 |-- yarn.lock                                        // yarn版本控制
 |-- index.html                                       // 入口html文件
 |-- package.json                                     // 项目及工具的依赖配置文件
 |-- README.md                                        // 说明
 
+```
 
 # 工作流程
 
