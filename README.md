@@ -49,9 +49,9 @@ npm start 启动服务器
 # 工作流程
 
 ## 2017.4.10
-搭建README.md文档基本结构		——————By 张正弦  
-webpack配置		——————By 白航  
-render模块		——————By 焦俊丽、李君怡  
-README.md修改，webpack配置修改、项目结构调整		——————By 张正弦
+搭建README.md文档基本结构		————By 张正弦  
+webpack配置		————By 白航  
+render模块		————By 焦俊丽、李君怡  
+README.md修改，webpack配置修改、项目结构调整		————By 张正弦
 
 # 总结
