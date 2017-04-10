@@ -36,7 +36,7 @@ npm start 启动服务器
 |			|-- render.js                // 场景渲染
 |		|-- sass                             // 公共样式文件
 |			|-- index.scss               // 公共样式入口文件
-|   |-- app.js                                       // 程序入口文件，加载各种公共组件
+| |-- app.js                                       // 程序入口文件，加载各种公共组件
 |-- static                                           // 静态文件目录
 |-- webpack.config.js                                // webpack配置文件
 |-- yarn.lock                                        // yarn版本控制
