@@ -1,3 +1,4 @@
-import './css/index.scss';
+import './common/sass/index.scss';
+import {init} from './common/js/init.js';
 
-console.log('hello world');
+init();

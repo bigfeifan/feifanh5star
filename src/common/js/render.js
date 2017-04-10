@@ -1,14 +1,14 @@
 /**
  * 场景渲染
  */
-function render(mycv, array) {
-    var myctx = mycv.getContext("2d");
+export function render(mycv, array) {
+    let myctx = mycv.getContext("2d");
 
-    var floor = new Image();
-    floor.src = "./img/floor.png";
+    let floor = new Image();
+    floor.src = "./static/img/floor.png";
 
-    var wall = new Image();
-    wall.src = "./img/wall.png";
+    let wall = new Image();
+    wall.src = "./static/img/wall.png";
 
     wall.onload = function() {
         for (var i in array) {
@@ -30,16 +30,3 @@ function render(mycv, array) {
 
     };
 }
-var canvas = document.querySelector("#canvas");
-var arr = [
-    [0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
-    [0, 1, 1, 2, 2, 2, 1, 1, 0, 0],
-    [0, 1, 2, 2, 3, 4, 4, 1, 1, 0],
-    [1, 1, 3, 2, 1, 4, 3, 4, 1, 0],
-    [1, 2, 2, 2, 1, 4, 4, 4, 1, 0],
-    [1, 2, 3, 1, 1, 1, 3, 2, 1, 0],
-    [1, 2, 2, 3, 2, 3, 2, 1, 1, 0],
-    [1, 1, 5, 2, 2, 2, 2, 1, 0, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 0, 0]
-]
-render(canvas, arr);
