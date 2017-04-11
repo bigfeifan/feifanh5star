@@ -1,0 +1,15 @@
+$base: 50px;
+
+.box {
+    position: absolute;
+    width: $base;
+    height: $base;
+    background: yellowgreen;
+}
+
+.people {
+    position: absolute;
+    width: $base;
+    height: $base;
+    background: red;
+}
