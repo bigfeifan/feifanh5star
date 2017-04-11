@@ -1,13 +1,7 @@
-import {
-	render
-} from './render.js';
-import {
-	Scence
-} from './scence/scence.js';
+import {Scence} from './scence.js';
 
 export function init() {
 	let container = document.querySelector('.wrap');
-	let canvas = document.querySelector("#canvas");
 	let arr = [
 		[0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
 		[0, 1, 1, 2, 2, 2, 1, 1, 0, 0],
@@ -20,8 +14,10 @@ export function init() {
 		[0, 1, 1, 1, 1, 1, 1, 1, 0, 0]
 	];
 	window.onload = function () {
-		render(canvas, arr);
-		let scence = new Scence(container, arr);
-		scence.init();
+		/* eslint-disable no-new */
+		new Scence(container, arr,{
+			wallImage: './static/img/floor.png',
+			floorImage: './static/img/wall.png'
+		});
 	};
 }
