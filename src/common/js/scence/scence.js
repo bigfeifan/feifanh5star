@@ -6,7 +6,7 @@ function SCENCE(base, container) {
     this.base = base || 50 //默认值是50像素宽的格子
     this.container = container
     this.people = null // 人的节点
-    this.boxes = []//保存的箱子
+    this.boxes = [] //保存的箱子
 }
 
 /*
@@ -40,7 +40,7 @@ SCENCE.prototype.drawbox = function (x, y) {
     }
     this.people.style.top = y + 'px'
     this.people.style.left = x + 'px'
-    
+
 }
 /*
  * 把数组中的坐标转化为绝对坐标
@@ -53,4 +53,11 @@ SCENCE.prototype.getPosition = function (x, y) {
         x: base * x,
         y: base * y
     }
+}
+/**
+ * 
+ * 
+ */
+var dectectCollistion = () => {
+    return
 }
