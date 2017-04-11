@@ -13,6 +13,8 @@ export function init(){
 	    [1, 1, 5, 2, 2, 2, 2, 1, 0, 0],
 	    [0, 1, 1, 1, 1, 1, 1, 1, 0, 0]
 	];
-	render(canvas,arr);
+	window.onload = function(){
+		render(canvas,arr);
+	};
 }
 	
