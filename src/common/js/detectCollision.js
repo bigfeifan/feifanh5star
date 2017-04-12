@@ -16,10 +16,24 @@ export function detectCollision(status, x, y, dir) {
         'right': 1,
         'left': 3
     }
+    //目的地
+    let nextBlock = -1
     switch (dir2num[dir]) {
         case 0:
-            return status[x-1][y] ?     
-            break;    
+            nextBlock = status[x - 1][y];
+            break;
+        case 1:
+            nextBlock = status[x][y + 1];
+            break;
+        case 2:
+            nextBlock = status[x + 1][y];
+            break;
+        case 3:
+            nextBlock = status[x][y - 1];
+            break;
+        default:
+            nextBlock = -1;
+            break;
     }
-    return
+    return nextBlock == 2 ? false : nextBlock
 }
