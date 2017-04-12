@@ -18,6 +18,7 @@ export function detectCollision(status, x, y, dir) {
     }
     switch (dir2num[dir]) {
         case 0:
+            return status[x-1][y] ?     
             break;    
     }
     return
