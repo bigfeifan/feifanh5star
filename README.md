@@ -34,10 +34,10 @@ npm start 启动服务器
 |		|-- js                               // 公共js文件
 |			|-- init.js                  // JS初始化文件
 |			|-- render.js                // 场景渲染
-|           |-- detectCollision.js       // 检测碰撞
-|           |-- debounce.js              // 函数防抖
-|           |-- bindEvent.js             // 封装事件绑定
-|           |-- update.js                // 触发事件后游戏的流程
+|			|-- detectCollision.js       // 检测碰撞
+|			|-- debounce.js              // 函数防抖
+|			|-- bindEvent.js             // 封装事件绑定
+| |-- update.js                // 触发事件后游戏的流程
 |		|-- sass                             // 公共样式文件
 |			|-- index.scss               // 公共样式入口文件
 |	|-- app.js                                   // 程序入口文件，加载各种公共组件
