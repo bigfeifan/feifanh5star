@@ -1,48 +1,75 @@
 /**
  * 场景渲染
  */
-import {drawObject} from './drawObject.js';
+import { drawObject } from './drawObject.js';
 
-export function render(container,status, option) {
-	let canvas = document.createElement('canvas');
-	canvas.width = 600;
-	canvas.height = 600;
-	container.appendChild(canvas);
+export async function render(container, status, option) {
+    let canvas = document.createElement('canvas');
+    canvas.width = 600;
+    canvas.height = 600;
+    container.appendChild(canvas);
     let myctx = canvas.getContext('2d');
 
-    let floor = document.createElement('img');
-    floor.src = option.wallImage;
+    let floor, wall;
 
-    let wall = document.createElement('img');
-    wall.src = option.floorImage;
-    wall.onload = function() {
+    let wallPromise = new Promise((resolve, reject) => {
+        let dom = document.createElement('img');
+
+        dom.src = option.wallImage;
+        dom.onload = () => {
+            resolve(dom);
+        };
+    });
+
+    let floorPromise = new Promise((resolve, reject) => {
+        let dom = document.createElement('img');
+
+        dom.src = option.floorImage;
+        dom.onload = () => {
+            resolve(dom);
+        };
+    });
+
+    return Promise.all([wallPromise, floorPromise]).then((data) => {
+        wall = data[0];
+        floor = data[1];
+
+        let current = Object.assign([], status);
+
         for (let i in status) {
-            for (let j in status) {
+            for (let j in status[i]) {
                 switch (status[i][j]) {
-                    case 0:
+                    case 0: // 默认颜色
                         myctx.fillStyle = '#000';
                         myctx.fillRect(j * 50, i * 50, 50, 50);
                         break;
-                    case 1:
+                    case 1: // 墙
                         myctx.drawImage(wall, j * 50, i * 50, 50, 50);
                         break;
-                    case 2:
-                        break; // 地板
-                    case 3:
-                        // 箱子
-                            drawObject(j, i, 'box',option.base,container);
-                            break;
-                    case 4:
-                        break; // 终点
-                    case 5:
-                        // 人
-                            drawObject(j, i, 'people',option.base,container);
-                            break;
+                    case 2: // 地板
+                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
+                        break;
+                    case 3: // 箱子
+                        current[i][j] = {
+                            name: 'box',
+                            object: drawObject(j, i, 'box', option.base, container)
+                        };
+                        break;
+                    case 4: // 终点
+                        break;
+                    case 5: // 人
+                        current[i][j] = {
+                            name: 'people',
+                            object: drawObject(j, i, 'people', option.base, container)
+                        };
+                        break;
                     default:
                         myctx.drawImage(floor, j * 50, i * 50, 50, 50);
                         break;
                 }
             }
         }
-    };
+
+        return current;
+    });
 }

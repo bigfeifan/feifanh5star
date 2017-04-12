@@ -5,4 +5,6 @@ export function drawObject(x, y, className,base,container) {
     object.style.top = y * base + 'px';
     // this.newstatus[x]
     container.appendChild(object);
+
+    return object;
 }
