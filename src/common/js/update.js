@@ -25,7 +25,6 @@ export function update(e) {
             dir = ' ';
             break;
     };
-    // console.log(dir);
     // 如果没有发生碰撞
     let firstDetect = detectCollision(dir);
     if (!firstDetect) {
@@ -33,7 +32,7 @@ export function update(e) {
     } else {
         let secondDetect = detectCollision(status);
         if (!secondDetect) {      
-            move();// 移动人
+            move(people,50,dir);// 移动人
             move();// 移动箱子
         } else {
             // do nothing
