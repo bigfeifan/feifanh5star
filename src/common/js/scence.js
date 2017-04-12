@@ -10,3 +10,4 @@ export function Scence(container, status, option) {
     };
     this.init();
 }
+
