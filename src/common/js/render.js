@@ -3,7 +3,11 @@
  */
 import { drawObject } from './drawObject.js';
 
+<<<<<<< HEAD
 export async function render(container, status, option) {
+=======
+export function render(container, status, option) {
+>>>>>>> b60478f78e5b5272042210a78d42609523890ef9
     let canvas = document.createElement('canvas');
     canvas.width = 600;
     canvas.height = 600;
@@ -38,6 +42,7 @@ export async function render(container, status, option) {
 
         for (let i in status) {
             for (let j in status[i]) {
+                
                 switch (status[i][j]) {
                     case 0: // 默认颜色
                         myctx.fillStyle = '#000';
@@ -50,14 +55,18 @@ export async function render(container, status, option) {
                         myctx.drawImage(floor, j * 50, i * 50, 50, 50);
                         break;
                     case 3: // 箱子
+                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
                         current[i][j] = {
                             name: 'box',
                             object: drawObject(j, i, 'box', option.base, container)
                         };
                         break;
                     case 4: // 终点
+                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
+                        drawObject(j, i, 'box out', option.base, container);
                         break;
                     case 5: // 人
+                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
                         current[i][j] = {
                             name: 'people',
                             object: drawObject(j, i, 'people', option.base, container)
