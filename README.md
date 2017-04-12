@@ -52,6 +52,10 @@ npm start 启动服务器
 搭建README.md文档基本结构		—By 张正弦  
 webpack配置		—By 白航  
 render模块		—By 焦俊丽、李君怡  
-README.md修改，webpack配置修改、项目结构调整		—By 张正弦
+README.md修改，webpack配置修改、项目结构调整		—By 张正弦  
+写移动机制流程图         -By李天惠 张棚贺
+## 2017.4.11
+
+## 2017.4.12
 
 # 总结
