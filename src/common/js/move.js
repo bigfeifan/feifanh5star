@@ -9,25 +9,28 @@
  * 
  */
 export function move(target, base, dir) {
-    // 移动方向和数字的映
+    let top = target.style.top.slice(0, -2);
+    let left = target.style.left.slice(0, -2);
+    // 移动方向和数字的映射
     const dir2num = {
         'up': 0,
         'down': 2,
         'right': 1,
         'left': 3
     };
+
     switch (dir2num[dir]) {
         case 0:
-            target.style.top -= base;
+            target.style.top = `${top - base}px`;
             break;
         case 1:
-            target.style.left += base;
+            target.style.left = `${+left + base}px`;
             break;
         case 2:
-            target.style.top += base;
+            target.style.top = `${+top + base}px`;
             break;
         case 3:
-            target.style.left -= base;
+            target.style.left = `${+left - base}px`;
             break;
         default:
             // do nothing    
