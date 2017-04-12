@@ -9,30 +9,29 @@
  * 
  */
 export function move(target, base, dir) {
-    //移动方向和数字的映
+    // 移动方向和数字的映
     const dir2num = {
         'up': 0,
         'down': 2,
         'right': 1,
         'left': 3
-    }
+    };
     switch (dir2num[dir]) {
         case 0:
-            target.style.top -= base
+            target.style.top -= base;
             break;
         case 1:
-            target.style.left += base
+            target.style.left += base;
             break;
         case 2:
-            target.style.top += base
+            target.style.top += base;
             break;
         case 3:
-            target.style.left -= base
+            target.style.left -= base;
             break;
         default:
-            //do nothing    
+            // do nothing    
             break;
-    }
-    return target
-
+    };
+    return target;
 }

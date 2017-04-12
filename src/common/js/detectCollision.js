@@ -9,15 +9,15 @@
  * @return {any} 返回碰撞状态 // false 未发生碰撞 0墙 1箱子
  */
 export function detectCollision(status, x, y, dir) {
-    //移动方向和数字的映射
+    // 移动方向和数字的映射
     const dir2num = {
         'up': 0,
         'down': 2,
         'right': 1,
         'left': 3
-    }
-    //目的地
-    let nextBlock = -1
+    };
+    // 目的地
+    let nextBlock = -1;
     switch (dir2num[dir]) {
         case 0:
             nextBlock = status[x - 1][y];
@@ -35,5 +35,5 @@ export function detectCollision(status, x, y, dir) {
             nextBlock = -1;
             break;
     }
-    return nextBlock == 2 ? false : nextBlock
+    return nextBlock === 2 ? false : nextBlock;
 }
