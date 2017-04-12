@@ -1,15 +1,26 @@
 $base: 50px;
-
 .box {
     position: absolute;
     width: $base;
     height: $base;
-    background: yellowgreen;
+    background: url(/static/img/box.png);
+    background-size: $base $base;
 }
 
 .people {
     position: absolute;
     width: $base;
     height: $base;
-    background: red;
+    background: url(/static/img/people.png);
+    background-size: $base $base;
+}
+
+.out {
+    background: url(/static/img/box-out.png);
+    background-size: $base $base;
+}
+
+.in {
+    background: url(/static/img/box-in.png);
+    background-size: $base $base;
 }
