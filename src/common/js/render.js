@@ -3,18 +3,14 @@
  */
 import { drawObject } from './drawObject.js';
 
-<<<<<<< HEAD
 export async function render(container, status, option) {
-=======
-export function render(container, status, option) {
->>>>>>> b60478f78e5b5272042210a78d42609523890ef9
     let canvas = document.createElement('canvas');
     canvas.width = 600;
     canvas.height = 600;
     container.appendChild(canvas);
     let myctx = canvas.getContext('2d');
 
-    let floor, wall;
+    let wall, floor;
 
     let wallPromise = new Promise((resolve, reject) => {
         let dom = document.createElement('img');
@@ -42,7 +38,6 @@ export function render(container, status, option) {
 
         for (let i in status) {
             for (let j in status[i]) {
-                
                 switch (status[i][j]) {
                     case 0: // 默认颜色
                         myctx.fillStyle = '#000';
