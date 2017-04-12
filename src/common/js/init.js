@@ -16,8 +16,8 @@ export function init() {
 	window.onload = function () {
 		/* eslint-disable no-new */
 		new Scence(container, arr,{
-			wallImage: './static/img/floor.png',
-			floorImage: './static/img/wall.png'
+			wallImage: './static/img/wall.png',
+			floorImage: './static/img/floor.png'
 		});
 	};
 }
