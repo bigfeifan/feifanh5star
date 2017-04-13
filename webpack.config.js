@@ -43,7 +43,7 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader?sourceMap',
-          'autoprefixer-loader',
+          'postcss-loader',
           'sass-loader?sourceMap'
         ]
       },
