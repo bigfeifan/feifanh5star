@@ -8,6 +8,7 @@ export function update(e) {
     let dir = ''; // 用户移动的方向
     let status = this.status; // 初始状态数组
     const people = document.querySelector('.people'); // 获取人的节点
+    detectCollision = detectCollision.bind(this, this.current);//为
     switch (e.keyCode) {
         case 37:
             dir = 'left';
