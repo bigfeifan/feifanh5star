@@ -1,4 +1,5 @@
 import { update } from './update';
+/*@param {object} check 检测对象*/ 
 export function checkCode(check,status) {
   var dir = ' ';
   var kCode = {
