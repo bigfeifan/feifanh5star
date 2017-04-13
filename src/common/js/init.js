@@ -2,6 +2,12 @@ import { Scence } from './scence.js';
 
 export function init() {
     let container = document.querySelector('.wrap');
+    // arr 参数
+    // 0 默认黑色背景
+    // 1 墙
+    // 2 地板
+    // 3 箱子
+    // 4 终点
     let arr = [
         [0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
         [0, 1, 1, 2, 2, 2, 1, 1, 0, 0],

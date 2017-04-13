@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var env = process.env.NODE_ENV;
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -10,7 +11,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: resolve('dist'),
-    publicPath: '/dist/',
+    publicPath: env === 'production' ? '/feifanh5star/' : '/dist/',
     filename: 'bundle.js'
   },
 
@@ -43,7 +44,7 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader?sourceMap',
-          'autoprefixer-loader',
+          'postcss-loader',
           'sass-loader?sourceMap'
         ]
       },
@@ -56,7 +57,7 @@ module.exports = {
   }
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (env === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
