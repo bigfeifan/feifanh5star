@@ -39,6 +39,10 @@ export async function render(container, status, option) {
         };
     });
 
+    function drawImage(image, x, y) {
+        myctx.drawImage(image, option.base * x, option.base * y, option.base, option.base);
+    }
+
     return Promise.all([wallPromise, floorPromise, desPromise]).then((data) => {
         wall = data[0];
         floor = data[1];
@@ -50,34 +54,34 @@ export async function render(container, status, option) {
                 switch (status[i][j]) {
                     case 0: // 默认颜色
                         myctx.fillStyle = '#000';
-                        myctx.fillRect(j * 50, i * 50, 50, 50);
+                        myctx.fillRect(j * option.base, i * option.base, option.base, option.base);
                         break;
                     case 1: // 墙
-                        myctx.drawImage(wall, j * 50, i * 50, 50, 50);
+                        drawImage(wall, j, i);
                         break;
                     case 2: // 地板
-                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
+                        drawImage(floor, j, i);
                         break;
                     case 3: // 箱子
-                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
+                        drawImage(floor, j, i);
                         current[i][j] = {
                             name: 'box',
                             object: drawObject(j, i, 'box', option.base, container)
                         };
                         break;
                     case 4: // 终点
-                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
-                        myctx.drawImage(des, j * 50, i * 50, 50, 50);
+                        drawImage(floor, j, i);
+                        drawImage(des, j, i);
                         break;
                     case 5: // 人
-                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
+                        drawImage(floor, j, i);
                         current[i][j] = {
                             name: 'people',
                             object: drawObject(j, i, 'people', option.base, container)
                         };
                         break;
                     default:
-                        myctx.drawImage(floor, j * 50, i * 50, 50, 50);
+                        drawImage(floor, j, i);
                         break;
                 }
             }
