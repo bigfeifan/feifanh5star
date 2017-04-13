@@ -17,7 +17,6 @@ export function Scence(container, status, option) {
                 this.flag = true;
                 this.check[e.keyCode] = true;
                 this.timer = new Date().getTime();
-                console.log(this.timer);
                 checkCode(this.check,this.status);
             } else {
                 var curTime = new Date().getTime();
