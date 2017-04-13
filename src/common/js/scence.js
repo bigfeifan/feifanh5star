@@ -10,15 +10,28 @@ export function Scence(container, status, option) {
     this.check = {};
     this.init = async function () {
         this.current = await render(this.container, this.status, this.option, this.current);
+        this.flag = false;  // 是否已经开始执行
+        this.timer = 0;   // 时间戳
         bindEvent('body', 'keydown', (e) => {
-            this.check[e.keyCode] = true;
+            if (!this.flag) {
+                this.flag = true;
+                this.check[e.keyCode] = true;
+                this.timer = new Date().getTime();
+                console.log(this.timer);
+                checkCode(this.check,this.status);
+            } else {
+                var curTime = new Date().getTime();
+                if (curTime - this.timer < 100) {
+                    return;
+                }
+                checkCode(this.check,this.status);
+                this.timer = curTime;
+            }
         });
         bindEvent('body', 'keyup', (e) => {
-            this.check[e.keyCode] = false;
+             this.check[e.keyCode] = false;
+             this.flag = false;
         });
-        setInterval(() => {
-          checkCode(this.check,this.status);
-        }, 500);
     };
     this.init();
 }
