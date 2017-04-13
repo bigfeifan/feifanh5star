@@ -15,7 +15,7 @@ export function update(ctx, dir) {
     let firstDetect = detectCollisionWith(savedPeople.x, savedPeople.y, dir); //第一次检测人和周围物体碰撞
     if (!firstDetect) {
         move(people, this.option.base, dir);
-    } else if (firstDetect == 3) {
+    } else if (firstDetect === 3) {
         let secondDetect = detectCollisionWith(savedPeople.x, savedPeople.y, dir);
         if (secondDetect) {
             move(people, ctx.base, dir); // 移动人
