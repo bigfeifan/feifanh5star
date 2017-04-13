@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/bigfeifan/feifanh5star/issues"
   },
-  "homepage": "https://github.com/bigfeifan/feifanh5star#readme",
+  "homepage": "https://bigfeifan.github.io/feifanh5star/",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.24.1",
