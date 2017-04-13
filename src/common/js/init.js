@@ -4,7 +4,7 @@ export function init() {
     let container = document.querySelector('.wrap');
     // arr 参数
     // 0 默认黑色背景
-    // 1 强
+    // 1 墙
     // 2 地板
     // 3 箱子
     // 4 终点
