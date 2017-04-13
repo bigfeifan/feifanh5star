@@ -34,7 +34,8 @@ export async function render(container, status, option) {
         wall = data[0];
         floor = data[1];
 
-        let current = Object.assign([], status);
+        let map = Object.assign([], status);
+        let people = null;
 
         for (let i in status) {
             for (let j in status[i]) {
@@ -51,7 +52,7 @@ export async function render(container, status, option) {
                         break;
                     case 3: // 箱子
                         myctx.drawImage(floor, j * 50, i * 50, 50, 50);
-                        current[i][j] = {
+                        map[i][j] = {
                             name: 'box',
                             object: drawObject(j, i, 'box', option.base, container)
                         };
@@ -62,9 +63,14 @@ export async function render(container, status, option) {
                         break;
                     case 5: // 人
                         myctx.drawImage(floor, j * 50, i * 50, 50, 50);
-                        current[i][j] = {
+                        map[i][j] = {
                             name: 'people',
                             object: drawObject(j, i, 'people', option.base, container)
+                        };
+                        people = {
+                            x: i,
+                            y: j,
+                            object: map[i][j].object
                         };
                         break;
                     default:
@@ -74,6 +80,7 @@ export async function render(container, status, option) {
             }
         }
 
-        return current;
+        return { map, people };
+        // return current;
     });
 }
