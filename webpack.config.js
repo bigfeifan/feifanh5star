@@ -1,21 +1,22 @@
-var webpack = require('webpack');
 var path = require('path');
+var webpack = require('webpack');
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
 module.exports = {
-  watch: true,
+  devtool: 'source-map',
   entry: './src/app.js',
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'js/main.js'
+    path: resolve('dist'),
+    publicPath: '/dist/',
+    filename: 'bundle.js'
   },
 
   devServer: {
-    contentBase: path.join(__dirname),
-    port: 3000,
+    contentBase: __dirname,
+    port: 3000
   },
   resolve: {
     extensions: ['.js','.json'],
@@ -28,7 +29,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        enforce: "pre",
+        enforce: 'pre',
         include: resolve('src'),
         use: [{
           loader: 'eslint-loader',
@@ -41,20 +42,27 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader',
-          'sass-loader'
+          'css-loader?sourceMap',
+          'autoprefixer-loader',
+          'sass-loader?sourceMap'
         ]
       },
       {
         test: /\.js$/,
         include: resolve('src'),
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: [['es2015']]
-          }
-        }]
+        loader: 'babel-loader'
       }
     ]
   }
+};
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    })
+  ]);
 }
