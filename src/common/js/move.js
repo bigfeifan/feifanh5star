@@ -38,3 +38,14 @@ export function move(target, base, dir) {
     };
     return target;
 }
+
+export function moveMap(status,map, obj, curX, curY) {
+    if (status[obj.x][obj.y] === 4) {
+        map[obj.x][obj.y] = 4;
+    } else { 
+        map[obj.x][obj.y] = 2;
+    }
+    obj.x = curX;
+    obj.y = curY;
+    map[curX][curY] = obj;
+}

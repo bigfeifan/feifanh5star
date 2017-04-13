@@ -68,6 +68,8 @@ export async function render(container, status, option) {
                         drawImage(floor, j, i);
                         map[i][j] = {
                             name: 'box',
+                            x: i,
+                            y: j,
                             object: drawObject(j, i, 'box', option.base, container)
                         };
                         break;
@@ -79,6 +81,8 @@ export async function render(container, status, option) {
                         drawImage(floor, j, i);
                         map[i][j] = {
                             name: 'people',
+                            x: i,
+                            y: j,
                             object: drawObject(j, i, 'people', option.base, container)
                         };
                         people = {

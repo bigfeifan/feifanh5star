@@ -49,5 +49,6 @@ export function detectCollision(status, x, y, dir) {
             nextBlock.type = -1;
             break;
     }
-    return nextBlock.type === 2 ? false : nextBlock;
+    
+    return nextBlock;
 }
