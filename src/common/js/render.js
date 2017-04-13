@@ -10,7 +10,7 @@ export async function render(container, status, option) {
     container.appendChild(canvas);
     let myctx = canvas.getContext('2d');
 
-    let wall, floor;
+    let wall, floor, des;
 
     let wallPromise = new Promise((resolve, reject) => {
         let dom = document.createElement('img');
@@ -30,10 +30,19 @@ export async function render(container, status, option) {
         };
     });
 
-    return Promise.all([wallPromise, floorPromise]).then((data) => {
+    let desPromise = new Promise((resolve, reject) => {
+        let dom = document.createElement('img');
+
+        dom.src = option.desImage;
+        dom.onload = () => {
+            resolve(dom);
+        };
+    });
+
+    return Promise.all([wallPromise, floorPromise, desPromise]).then((data) => {
         wall = data[0];
         floor = data[1];
-
+        des = data[2];
         let current = Object.assign([], status);
 
         for (let i in status) {
@@ -58,7 +67,7 @@ export async function render(container, status, option) {
                         break;
                     case 4: // 终点
                         myctx.drawImage(floor, j * 50, i * 50, 50, 50);
-                        drawObject(j, i, 'box out', option.base, container);
+                        myctx.drawImage(des, j * 50, i * 50, 50, 50);
                         break;
                     case 5: // 人
                         myctx.drawImage(floor, j * 50, i * 50, 50, 50);
