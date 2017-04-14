@@ -10,9 +10,6 @@ import {
 import {
     level
 } from './level.js';
-
-
-
 export function Scence(container, status, option) {
     this.option = option || {};
     this.container = container;
@@ -23,7 +20,6 @@ export function Scence(container, status, option) {
         this.curLevel = curLevel || 1;
         this.container.innerHTML = '';
         this.curStatus = await render(this.container, this.status, this.option, this.current);
-        this.levelTiming = new Date().getTime(); // 开始关卡计时
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
         bindEvent('body', 'keydown', (e) => {
