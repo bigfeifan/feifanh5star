@@ -9,6 +9,9 @@
     left:0;
     top:0;
     z-index:2;
+    &.hidden{
+        display:none;
+    }
     .tips{
         width: 300px;
         height:200px;
