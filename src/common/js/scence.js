@@ -7,9 +7,9 @@ import {
 import {
     checkCode
 } from './checkCode.js';
-// import {
-//     level
-// } from './level.js';
+import {
+    level
+} from './level.js';
 export function Scence(container, status, option) {
     this.option = option || {};
     this.container = container;
