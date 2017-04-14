@@ -4,7 +4,6 @@ $animation: all .3s ease;
     position: absolute;
     width: $base;
     height: $base;
-    background: url(/static/img/box.png);
     background-size: $base $base;
     transition: $animation;
 }
@@ -13,17 +12,6 @@ $animation: all .3s ease;
     position: absolute;
     width: $base;
     height: $base;
-    background: url(/static/img/people.png);
     background-size: $base $base;
     transition: $animation;
-}
-
-.out {
-    background: url(/static/img/box.png);
-    background-size: $base $base;
-}
-
-.in {
-    background: url(/static/img/box-in.png);
-    background-size: $base $base;
 }

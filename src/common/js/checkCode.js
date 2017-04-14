@@ -1,5 +1,9 @@
-import { update } from './update';
-import { rerender } from './rerender.js';
+import {
+  update
+} from './update';
+import {
+  rerender
+} from './rerender.js';
 /**
  * @param {object} check 检测对象
  */
@@ -8,7 +12,7 @@ export function checkCode(ctx) {
   var kCode = {
     UP: 38,
     LEFT: 37,
-    DOWN: 40,  
+    DOWN: 40,
     RIGHT: 39,
     W: 87,
     A: 65,
@@ -17,30 +21,35 @@ export function checkCode(ctx) {
     WHITESPACE: 32,
     N: 78
   };
-  if (ctx.check[kCode.UP]) {
-    dir = 'up';
-  } 
-  if (ctx.check[kCode.LEFT]) {
-    dir = 'left';
-  }
-  if (ctx.check[kCode.DOWN]) {
-    dir = 'down';
-  } 
-  if (ctx.check[kCode.RIGHT]) {
-    dir = 'right';
-  } 
-  if (ctx.check[kCode.W]) {
-    console.log('W');
-  } 
-  if (ctx.check[kCode.A]) {
-    console.log('A');
-  } 
-  if (ctx.check[kCode.S]) {
-    console.log('S');
-  } 
-  if (ctx.check[kCode.D]) {
-    console.log('D');
-  }
+  if (ctx._id === 1) {
+    if (ctx.check[kCode.UP]) {
+      dir = 'up';
+    }
+    if (ctx.check[kCode.LEFT]) {
+      dir = 'left';
+    }
+    if (ctx.check[kCode.DOWN]) {
+      dir = 'down';
+    }
+    if (ctx.check[kCode.RIGHT]) {
+      dir = 'right';
+    }
+  };
+  if (ctx._id === 2) {
+    if (ctx.check[kCode.W]) {
+      // console.log('W');
+      dir = 'up';
+    }
+    if (ctx.check[kCode.A]) {
+      dir = 'left';
+    }
+    if (ctx.check[kCode.S]) {
+      dir = 'down';
+    }
+    if (ctx.check[kCode.D]) {
+      dir = 'right';
+    }
+  };
   if (ctx.check[kCode.WHITESPACE]) {
     rerender(ctx, ctx.curLevel);
   }

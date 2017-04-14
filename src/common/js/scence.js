@@ -1,16 +1,24 @@
-import {
-    render
-} from './render.js';
-import {
-    bindEvent
-} from './bindEvent.js';
-import {
-    checkCode
-} from './checkCode.js';
-import {
-    level
-} from './level.js';
+import {render} from './render.js';
+import {bindEvent} from './bindEvent.js';
+import {checkCode} from './checkCode.js';
+import {level} from './level.js';
+import {backChanged} from './backChanged.js';
+import {keyJuge} from './keyJuge.js';
 import { rerender } from './rerender.js';
+// 把option中的属性作为scence的私有属性保存
+Scence.prototype._proxy = function (data) {
+    for (var i in data) {
+        this[`_${i}`] = data[i];
+    };
+};
+/**
+ * @description 
+ * 
+ * @export
+ * @param {any} container 
+ * @param {any} status 
+ * @param {any} option 
+ */
 export function Scence(container, status, option) {
     this.option = option || {};
     this.container = container;
@@ -26,10 +34,16 @@ export function Scence(container, status, option) {
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
         this.curStatus = await render(this.container, this.status, this.option, this.successBoxsObj);
+        backChanged('.box',this.option.boxImage);
+        backChanged('.people',this.option.peopleImage);
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
+        this._proxy(this.option);
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
+            if (!this.flag && !keyJuge(e.keyCode,this.option.id)) {
+                return;
+            }
             if (!this.flag) {
                 this.flag = true;
                 this.check[e.keyCode] = true;
@@ -45,6 +59,9 @@ export function Scence(container, status, option) {
             }
         });
         bindEvent('body', 'keyup', (e) => {
+            if (!keyJuge(e.keyCode,this.option.id)) {
+                return;
+            }
             this.check[e.keyCode] = false;
             this.flag = false;
         });

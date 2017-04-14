@@ -28,6 +28,17 @@ function cloneObj(obj) {
     return newobj;
 };
 
+function createPromise(name) {
+    return new Promise((resolve, reject) => {
+        let dom = document.createElement('img');
+
+        dom.src = name;
+        dom.onload = () => {
+            resolve(dom);
+        };
+    });
+}
+
 export async function render(container, status, option, successBoxsObj) {
     let canvas = document.createElement('canvas');
     canvas.width = 600;
@@ -36,34 +47,15 @@ export async function render(container, status, option, successBoxsObj) {
     let myctx = canvas.getContext('2d');
 
     let wall, floor, des;
-
-    let wallPromise = new Promise((resolve, reject) => {
-        let dom = document.createElement('img');
-
-        dom.src = option.wallImage;
-        dom.onload = () => {
-            resolve(dom);
-        };
-    });
-
-    let floorPromise = new Promise((resolve, reject) => {
-        let dom = document.createElement('img');
-
-        dom.src = option.floorImage;
-        dom.onload = () => {
-            resolve(dom);
-        };
-    });
-
-    let desPromise = new Promise((resolve, reject) => {
-        let dom = document.createElement('img');
-
-        dom.src = option.desImage;
-        dom.onload = () => {
-            resolve(dom);
-        };
-    });
-
+    
+    let wallPromise = createPromise(option.wallImage);
+    let floorPromise = createPromise(option.floorImage);
+    let desPromise = createPromise(option.desImage);
+    /* eslint-disable no-unused-vars */
+    let boxPromise = createPromise(option.boxImage);
+    let peoplePromise = createPromise(option.peopleImage);
+    let inPromise = createPromise(option.inImage);
+    /* eslint-enable no-unused-vars */
     function drawImage(image, x, y) {
         myctx.drawImage(image, option.base * x, option.base * y, option.base, option.base);
     }
