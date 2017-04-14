@@ -17,7 +17,6 @@ export function update(ctx, dir) {
         move(savedPeople.object, ctx.option.base, dir);
         moveMap(ctx.status, ctx.curStatus.map, savedPeople, firstDetect.x, firstDetect.y);
     } else if (typeof firstDetect.type === 'object' && firstDetect.type.name === 'box') {
-        ctx.init();
         let secondDetect = detectCollisionWith(firstDetect.x, firstDetect.y, dir);
         let box = ctx.curStatus.map[firstDetect.x][firstDetect.y];
         if (secondDetect.type === 2 || secondDetect.type === 4) {

@@ -21,9 +21,9 @@ export function Scence(container, status, option) {
     this.option.base = this.option.base || 50;
     this.level = 0;
     this.check = {};
-    this.init = async function () {
-        this.level++;
-        this.status = level()[`level${this.level}`];
+    this.init = async function (curlevel) {
+        curlevel = curlevel || 1;
+        this.status = level()[`level${curlevel}`];
         this.container.innerHTML = '';
         this.curStatus = await render(this.container, this.status, this.option, this.current);
         this.flag = false; // 是否已经开始执行
