@@ -15,15 +15,13 @@ import {
 
 export function Scence(container, status, option) {
     this.option = option || {};
-    this.status = status; // 初始状态二维数组
     this.container = container;
     this.curStatus = null; // json 保存当前状态的{map//当前状态的二维数组 people//包含x,y和{dom}obj}的对象}
     this.option.base = this.option.base || 50;
-    this.level = 0;
     this.check = {};
-    this.init = async function (curlevel) {
-        curlevel = curlevel || 1;
-        this.status = level()[`level${curlevel}`];
+    this.init = async function (curLevel) {
+        this.curLevel = curLevel || 1;
+        this.status = level()[`level${this.curLevel}`]; // 初始状态二维数组
         this.container.innerHTML = '';
         this.curStatus = await render(this.container, this.status, this.option, this.current);
         this.flag = false; // 是否已经开始执行
