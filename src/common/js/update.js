@@ -32,7 +32,9 @@ export function update(ctx, dir) {
             }
             removeSuccessBox(ctx.successBoxsObj, savedPeople.x, savedPeople.y);
             if (isGameOver(ctx.successBoxsObj)) {
+                let gameTime = ~~((Date.now() - ctx.gameStartDate) / 1000);
                 setTimeout(() => {
+                    document.getElementById('time').innerHTML = gameTime + ' 秒';
                     document.querySelector('.swap').style.display = 'block';
                 }, 500);
             }

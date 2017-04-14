@@ -38,6 +38,7 @@ export function Scence(container, status, option) {
         backChanged('.people',this.option.peopleImage);
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
+        this.gameStartDate = Date.now();
         this._proxy(this.option);
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
