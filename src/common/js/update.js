@@ -25,12 +25,27 @@ export function update(ctx, dir) {
             move(savedPeople.object, ctx.option.base, dir); // 移动人
             moveMap(ctx.status, ctx.curStatus.map, savedPeople, firstDetect.x, firstDetect.y);
             if (secondDetect.type === 4) {
+                ctx.successBoxsObj.boxSet.add(`${secondDetect.x}-${secondDetect.y}`);
                 box.object.style.backgroundImage = `url(${ctx._inImage})`;
             } else {
                 box.object.style.backgroundImage = `url(${ctx._boxImage})`;  
+            }
+            removeSuccessBox(ctx.successBoxsObj, savedPeople.x, savedPeople.y);
+            if (isGameOver(ctx.successBoxsObj)) {
+                setTimeout(() => {
+                    document.querySelector('.swap').style.display = 'block';
+                }, 500);
             }
         } else {
             // do nothing
         }
     }
+}
+
+function isGameOver(successBoxsObj) {
+    return successBoxsObj.boxSet.size === successBoxsObj.len;
+}
+
+function removeSuccessBox(successBoxsObj, x, y) {
+    successBoxsObj.boxSet.delete(`${x}-${y}`);
 }

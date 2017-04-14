@@ -1,17 +1,25 @@
+html{
+    height:100%;
+}
 body {
     display: flex;
-}
-.wrap {
+    justify-content: space-around;
+    align-items: center;
+    height:100%;
+    background:url('/static/img/bg.jpg');
+    background-size:100% auto;
     position: relative;
-    flex: 1;
+}
+.wrap{
+    position:relative;
 }
 .swap{
-    width:500px;
-    height:450px;
     background:rgba(0, 0, 0, 0.6);
     position:absolute;
-    left:0;
+    left: 0;
     top:0;
+    right: 0;
+    bottom: 0;
     z-index:2;
     .tips{
         width: 300px;

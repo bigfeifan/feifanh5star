@@ -19,7 +19,9 @@ export function checkCode(ctx) {
     S: 83,
     D: 68,
     WHITESPACE: 32,
-    N: 78
+    N: 78,
+    Q: 81,
+    'slash': 191
   };
   if (ctx._id === 1) {
     if (ctx.check[kCode.UP]) {
@@ -50,14 +52,9 @@ export function checkCode(ctx) {
       dir = 'right';
     }
   };
-  if (ctx.check[kCode.WHITESPACE]) {
+  if (ctx.check[kCode.WHITESPACE] || ctx.check[kCode.Q] || ctx.check[kCode.slash]) {
     rerender(ctx, ctx.curLevel);
-    return;
   }
 
-  if (ctx.check[kCode.N]) {
-    rerender(ctx, ctx.curLevel + 1);
-    return;
-  }
-  update(ctx, dir);
+  update(ctx,dir);
 }

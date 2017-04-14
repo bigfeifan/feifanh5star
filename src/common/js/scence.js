@@ -1,18 +1,10 @@
-import {
-    render
-} from './render.js';
-import {
-    bindEvent
-} from './bindEvent.js';
-import {
-    checkCode
-} from './checkCode.js';
-import {
-    level
-} from './level.js';
-import {
-    backChanged
-} from './backChanged.js';
+import {render} from './render.js';
+import {bindEvent} from './bindEvent.js';
+import {checkCode} from './checkCode.js';
+import {level} from './level.js';
+import {backChanged} from './backChanged.js';
+import {keyJuge} from './keyJuge.js';
+import { rerender } from './rerender.js';
 // 把option中的属性作为scence的私有属性保存
 Scence.prototype._proxy = function (data) {
     for (var i in data) {
@@ -34,10 +26,14 @@ export function Scence(container, status, option) {
     this.option.base = this.option.base || 50;
     this.check = {};
     this.init = async function(curLevel) {
+        this.successBoxsObj = {
+            len: 0,
+            boxSet: new Set() 
+        };
         this.curLevel = curLevel || 0;
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
-        this.curStatus = await render(this.container, this.status, this.option, this.current);
+        this.curStatus = await render(this.container, this.status, this.option, this.successBoxsObj);
         backChanged('.box',this.option.boxImage);
         backChanged('.people',this.option.peopleImage);
         this.flag = false; // 是否已经开始执行
@@ -45,6 +41,9 @@ export function Scence(container, status, option) {
         this._proxy(this.option);
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
+            if (!this.flag && !keyJuge(e.keyCode,this.option.id)) {
+                return;
+            }
             if (!this.flag) {
                 this.flag = true;
                 this.check[e.keyCode] = true;
@@ -61,7 +60,20 @@ export function Scence(container, status, option) {
         });
         bindEvent('body', 'keyup', (e) => {
             this.check[e.keyCode] = false;
-            this.flag = false;
+            if (keyJuge(e.keyCode,this.option.id)) {
+                this.flag = false;
+            }
+        });
+        bindEvent('.btn', 'click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                if (e.target.id === 'btn-next') {
+                    rerender(this, this.curLevel + 1);
+                }
+                if (e.target.id === 'btn-again') {
+                    rerender(this, this.curLevel);
+                }
+                document.querySelector('.swap').style.display = 'none';
+            }
         });
     };
     this.init();

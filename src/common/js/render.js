@@ -39,10 +39,10 @@ function createPromise(name) {
     });
 }
 
-export async function render(container, status, option) {
+export async function render(container, status, option, successBoxsObj) {
     let canvas = document.createElement('canvas');
-    canvas.width = 600;
-    canvas.height = 600;
+    canvas.width = 500;
+    canvas.height = 500;
     container.appendChild(canvas);
     let myctx = canvas.getContext('2d');
 
@@ -72,7 +72,7 @@ export async function render(container, status, option) {
             for (let j in status[i]) {
                 switch (status[i][j]) {
                     case 0: // 默认颜色
-                        myctx.fillStyle = '#000';
+                        myctx.fillStyle = 'transparent';
                         myctx.fillRect(j * option.base, i * option.base, option.base, option.base);
                         break;
                     case 1: // 墙
@@ -93,6 +93,7 @@ export async function render(container, status, option) {
                     case 4: // 终点
                         drawImage(floor, j, i);
                         drawImage(des, j, i);
+                        successBoxsObj.len ++;
                         break;
                     case 5: // 人
                         drawImage(floor, j, i);
