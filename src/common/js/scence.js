@@ -65,7 +65,7 @@ export function Scence(container, status, option) {
                 this.flag = false;
             }
         });
-        bindEvent('.btn', 'click', (e) => {
+        bindEvent('.tips-btn', 'click', (e) => {
             if (e.target.tagName === 'BUTTON') {
                 if (e.target.id === 'btn-next') {
                     rerender(this, this.curLevel + 1);
