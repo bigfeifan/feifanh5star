@@ -54,7 +54,11 @@ export function checkCode(ctx) {
   };
   if (ctx.check[kCode.WHITESPACE] || ctx.check[kCode.Q] || ctx.check[kCode.slash]) {
     rerender(ctx, ctx.curLevel);
+    return;
   }
-
+  if (ctx.check[kCode.N]) {
+    rerender(ctx, ctx.curLevel + 1);
+    return;
+  }
   update(ctx,dir);
 }
