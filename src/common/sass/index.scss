@@ -1,3 +1,59 @@
 .wrap {
     position: relative;
 }
+.swap{
+    width:500px;
+    height:450px;
+    background:rgba(0, 0, 0, 0.6);
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:2;
+    &.hidden{
+        display:none;
+    }
+    .tips{
+        width: 300px;
+        height:200px;
+        padding:10px;
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        background:#fff;
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px;
+    }
+    div.text{
+        height:80%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        background:#DED6AD;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        border-radius:5px;
+        p{
+            text-align:center;
+            color:#fff;
+            line-height:25px;
+        }
+    }
+    .btn{
+        width:170px;
+        margin:5px auto;
+        button{
+            width:70px;
+            height:30px;
+            color:#fff;
+            border:none;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            border-radius:5px;
+            background:#DED6AD;
+        }
+    }
+}
