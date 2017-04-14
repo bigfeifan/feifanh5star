@@ -1,18 +1,9 @@
-import {
-    render
-} from './render.js';
-import {
-    bindEvent
-} from './bindEvent.js';
-import {
-    checkCode
-} from './checkCode.js';
-import {
-    level
-} from './level.js';
-import {
-    backChanged
-} from './backChanged.js';
+import {render} from './render.js';
+import {bindEvent} from './bindEvent.js';
+import {checkCode} from './checkCode.js';
+import {level} from './level.js';
+import {backChanged} from './backChanged.js';
+import {keyJuge} from './keyJuge.js';
 // 把option中的属性作为scence的私有属性保存
 Scence.prototype._proxy = function (data) {
     for (var i in data) {
@@ -34,7 +25,7 @@ export function Scence(container, status, option) {
     this.option.base = this.option.base || 50;
     this.check = {};
     this.init = async function(curLevel) {
-        this.curLevel = curLevel || 0;
+        this.curLevel = curLevel || 3;
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
         this.curStatus = await render(this.container, this.status, this.option, this.current);
@@ -45,6 +36,9 @@ export function Scence(container, status, option) {
         this._proxy(this.option);
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
+            if (!this.flag && !keyJuge(e.keyCode,this.option.id)) {
+                return;
+            }
             if (!this.flag) {
                 this.flag = true;
                 this.check[e.keyCode] = true;
@@ -60,6 +54,9 @@ export function Scence(container, status, option) {
             }
         });
         bindEvent('body', 'keyup', (e) => {
+            if (!keyJuge(e.keyCode,this.option.id)) {
+                return;
+            }
             this.check[e.keyCode] = false;
             this.flag = false;
         });
