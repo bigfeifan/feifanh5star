@@ -6,6 +6,12 @@ import {
 } from './drawObject.js';
 
 
+/**
+ * @description 实现对象的深拷贝
+ * 
+ * @param {object} obj 
+ * @returns {object} 拷贝后的对象 
+ */
 function cloneObj(obj) {
     var str;
     var newobj = obj.constructor === Array ? [] : {};

@@ -7,6 +7,9 @@ import {
 import {
     checkCode
 } from './checkCode.js';
+
+                                                                                                                                                                                            
+
 export function Scence(container, status, option) {
     this.option = option || {};
     this.status = status; // 初始状态二维数组
