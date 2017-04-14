@@ -59,11 +59,10 @@ export function Scence(container, status, option) {
             }
         });
         bindEvent('body', 'keyup', (e) => {
-            if (!keyJuge(e.keyCode,this.option.id)) {
-                return;
-            }
             this.check[e.keyCode] = false;
-            this.flag = false;
+            if (keyJuge(e.keyCode,this.option.id)) {
+                this.flag = false;
+            }
         });
         bindEvent('.btn', 'click', (e) => {
             if (e.target.tagName === 'BUTTON') {
