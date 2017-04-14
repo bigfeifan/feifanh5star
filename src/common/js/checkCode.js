@@ -52,12 +52,7 @@ export function checkCode(ctx) {
   };
   if (ctx.check[kCode.WHITESPACE]) {
     rerender(ctx, ctx.curLevel);
-    return;
   }
 
-  if (ctx.check[kCode.N]) {
-    rerender(ctx, ctx.curLevel + 1);
-    return;
-  }
-  update(ctx, dir);
+  update(ctx,dir);
 }

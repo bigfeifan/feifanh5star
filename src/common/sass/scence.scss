@@ -1,5 +1,5 @@
 $base: 50px;
-$animation: all .3s;
+$animation: all .3s ease;
 .box {
     position: absolute;
     width: $base;
