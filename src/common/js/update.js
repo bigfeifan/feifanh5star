@@ -28,14 +28,16 @@ export function update(ctx, dir) {
                 box.object.classList.remove('out');
                 box.object.classList.add('in');
                 ctx.successBoxsObj.boxSet.add(`${secondDetect.x}-${secondDetect.y}`);
-                if (isGameOver(ctx.successBoxsObj)) {
-                    document.querySelector('.swap').style.display = 'block';
-                }
             } else {
                 box.object.classList.add('out');
                 box.object.classList.remove('in');  
             }
             removeSuccessBox(ctx.successBoxsObj, savedPeople.x, savedPeople.y);
+            if (isGameOver(ctx.successBoxsObj)) {
+                setTimeout(() => {
+                    document.querySelector('.swap').style.display = 'block';
+                }, 500);
+            }
         } else {
             // do nothing
         }

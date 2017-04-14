@@ -10,6 +10,7 @@ import {
 import {
     level
 } from './level.js';
+import { rerender } from './rerender.js';
 export function Scence(container, status, option) {
     this.option = option || {};
     this.container = container;
@@ -17,16 +18,16 @@ export function Scence(container, status, option) {
     this.option.base = this.option.base || 50;
     this.check = {};
     this.init = async function(curLevel) {
+        this.successBoxsObj = {
+            len: 0,
+            boxSet: new Set() 
+        };
         this.curLevel = curLevel || 0;
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
         this.curStatus = await render(this.container, this.status, this.option, this.successBoxsObj);
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
-        this.successBoxsObj = {
-            len: 0,
-            boxSet: new Set() 
-        };
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
             if (!this.flag) {
@@ -46,6 +47,17 @@ export function Scence(container, status, option) {
         bindEvent('body', 'keyup', (e) => {
             this.check[e.keyCode] = false;
             this.flag = false;
+        });
+        bindEvent('.btn', 'click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                if (e.target.id === 'btn-next') {
+                    rerender(this, this.curLevel + 1);
+                }
+                if (e.target.id === 'btn-again') {
+                    rerender(this, this.curLevel);
+                }
+                document.querySelector('.swap').style.display = 'none';
+            }
         });
     };
     this.init();
