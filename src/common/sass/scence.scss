@@ -1,10 +1,12 @@
 $base: 50px;
+$animation: all .3s;
 .box {
     position: absolute;
     width: $base;
     height: $base;
     background: url(/static/img/box.png);
     background-size: $base $base;
+    transition: $animation;
 }
 
 .people {
@@ -13,6 +15,7 @@ $base: 50px;
     height: $base;
     background: url(/static/img/people.png);
     background-size: $base $base;
+    transition: $animation;
 }
 
 .out {
