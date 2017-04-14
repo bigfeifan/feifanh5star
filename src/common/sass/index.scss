@@ -1,3 +1,15 @@
+@media screen and (max-width: 800px) {
+    .wrap {
+        transform: scale(0.9)
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .wrap {
+        transform: scale(1.2)
+    }
+}
+
 html {
     height: 100%;
 }
@@ -7,10 +19,12 @@ body {
     align-content: center;
     height: 100%;
 }
+
 .container {
     display: flex;
     justify-content: space-around;
 }
+
 .wrap {
     position: relative;
     flex: 1;
@@ -79,30 +93,33 @@ body {
     }
 }
 
-html{
-    height:100%;
+html {
+    height: 100%;
 }
+
 body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height:100%;
-    background:url('/static/img/bg.jpg');
-    background-size:100% auto;
+    height: 100%;
+    background: url('/static/img/bg.jpg');
+    background-size: 100% auto;
     position: relative;
 }
-.wrap{
-    position:relative;
+
+.wrap {
+    position: relative;
 }
-.swap{
-    background:rgba(0, 0, 0, 0.6);
-    position:absolute;
+
+.swap {
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
     left: 0;
-    top:0;
+    top: 0;
     right: 0;
     bottom: 0;
-    z-index:2;
-    .tips{
+    z-index: 2;
+    .tips {
         width: 300px;
         height: 200px;
         padding: 10px;
