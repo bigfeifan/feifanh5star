@@ -27,7 +27,7 @@ export function update(ctx, dir) {
             if (secondDetect.type === 4) {
                 box.object.style.backgroundImage = `url(${ctx._inImage})`;
             } else {
-                box.object.style.backgroundImage = `url(${ctx._peopleImage})`;  
+                box.object.style.backgroundImage = `url(${ctx._boxImage})`;  
             }
         } else {
             // do nothing

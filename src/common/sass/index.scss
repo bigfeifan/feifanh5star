@@ -1,5 +1,9 @@
+body {
+    display: flex;
+}
 .wrap {
     position: relative;
+    flex: 1;
 }
 .swap{
     width:500px;

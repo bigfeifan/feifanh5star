@@ -7,5 +7,5 @@
  */
 export function bindEvent(Selector, eventName, func) {
     let element = document.querySelector(Selector);
-    element['on' + eventName] = func;
+    element.addEventListener(eventName, func);
 }
