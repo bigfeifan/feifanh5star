@@ -16,12 +16,18 @@ export function init() {
             wallImage: './static/img/wall.png',
             floorImage: './static/img/floor.png',
             desImage: './static/img/box-out.png',
+            boxImage: './static/img/box.png',
+            peopleImage: './static/img/people.png',
+            inImage: './static/img/box-in.png',
             id: player1
         });
         new Scence(container2, arr, {
             wallImage: './static/img/wall.png',
             floorImage: './static/img/floor.png',
             desImage: './static/img/box-out.png',
+            boxImage: './static/img/box.png',
+            peopleImage: './static/img/people.png',
+            inImage: './static/img/box-in.png',
             id: player2
         });
     };

@@ -25,11 +25,9 @@ export function update(ctx, dir) {
             move(savedPeople.object, ctx.option.base, dir); // 移动人
             moveMap(ctx.status, ctx.curStatus.map, savedPeople, firstDetect.x, firstDetect.y);
             if (secondDetect.type === 4) {
-                box.object.classList.remove('out');
-                box.object.classList.add('in');
+                box.object.style.backgroundImage = `url(${ctx._inImage})`;
             } else {
-                box.object.classList.add('out');
-                box.object.classList.remove('in');  
+                box.object.style.backgroundImage = `url(${ctx._boxImage})`;  
             }
         } else {
             // do nothing
