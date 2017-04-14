@@ -27,12 +27,25 @@ export function update(ctx, dir) {
             if (secondDetect.type === 4) {
                 box.object.classList.remove('out');
                 box.object.classList.add('in');
+                ctx.successBoxsObj.boxSet.add(`${secondDetect.x}-${secondDetect.y}`);
+                if (isGameOver(ctx.successBoxsObj)) {
+                    document.querySelector('.swap').style.display = 'block';
+                }
             } else {
                 box.object.classList.add('out');
                 box.object.classList.remove('in');  
             }
+            removeSuccessBox(ctx.successBoxsObj, savedPeople.x, savedPeople.y);
         } else {
             // do nothing
         }
     }
+}
+
+function isGameOver(successBoxsObj) {
+    return successBoxsObj.boxSet.size === successBoxsObj.len;
+}
+
+function removeSuccessBox(successBoxsObj, x, y) {
+    successBoxsObj.boxSet.delete(`${x}-${y}`);
 }

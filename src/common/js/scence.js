@@ -20,9 +20,13 @@ export function Scence(container, status, option) {
         this.curLevel = curLevel || 0;
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
-        this.curStatus = await render(this.container, this.status, this.option, this.current);
+        this.curStatus = await render(this.container, this.status, this.option, this.successBoxsObj);
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
+        this.successBoxsObj = {
+            len: 0,
+            boxSet: new Set() 
+        };
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
             if (!this.flag) {
