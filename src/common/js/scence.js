@@ -21,11 +21,12 @@ export function Scence(container, status, option) {
     this.option.base = this.option.base || 50;
     this.level = 0;
     this.check = {};
-    this.init = async function (curlevel) {
+    this.init = async function(curlevel) {
         curlevel = curlevel || 1;
         this.status = level()[`level${curlevel}`];
         this.container.innerHTML = '';
         this.curStatus = await render(this.container, this.status, this.option, this.current);
+        this.levelTiming = new Date().getTime(); // 开始关卡计时
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
         bindEvent('body', 'keydown', (e) => {
