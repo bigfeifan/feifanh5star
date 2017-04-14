@@ -10,6 +10,9 @@ import {
 import {
     level
 } from './level.js';
+import {
+    backChanged
+} from './backChanged.js';
 export function Scence(container, status, option) {
     this.option = option || {};
     this.container = container;
@@ -21,6 +24,8 @@ export function Scence(container, status, option) {
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
         this.curStatus = await render(this.container, this.status, this.option, this.current);
+        backChanged('.box',this.option.boxImage);
+        backChanged('.people',this.option.peopleImage);
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
         bindEvent('body', 'keydown', (e) => {
