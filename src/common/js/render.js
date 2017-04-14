@@ -122,11 +122,7 @@ export async function render(container, status, option) {
                 }
             }
         }
-        console.log(status, map);
-        return {
-            map,
-            people
-        };
+        return { map, people };
         // return current;
     });
 }
