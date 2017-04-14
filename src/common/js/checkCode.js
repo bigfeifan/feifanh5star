@@ -1,4 +1,5 @@
 import { update } from './update';
+import { rerender } from './rerender.js';
 /**
  * @param {object} check 检测对象
  */
@@ -12,7 +13,9 @@ export function checkCode(ctx) {
     W: 87,
     A: 65,
     S: 83,
-    D: 68
+    D: 68,
+    WHITESPACE: 32,
+    N: 78
   };
   if (ctx.check[kCode.UP]) {
     dir = 'up';
@@ -38,6 +41,16 @@ export function checkCode(ctx) {
   } 
   if (ctx.check[kCode.D]) {
     console.log('D');
+  }
+
+  if (ctx.check[kCode.WHITESPACE]) {
+    rerender(ctx, ctx.curLevel);
+    return;
+  }
+
+  if (ctx.check[kCode.N]) {
+    rerender(ctx, ctx.curLevel + 1);
+    return;
   }
   update(ctx,dir);
 }
