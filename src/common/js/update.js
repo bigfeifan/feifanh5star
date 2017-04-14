@@ -5,10 +5,6 @@ import {
     move,
     moveMap
 } from './move.js';
-import {
-    renderIn,
-    renderOut
-} from './renderStatus.js';
 /**
  * 用户更新游戏状态
  * @export
@@ -25,11 +21,6 @@ export function update(ctx, dir) {
         let box = ctx.curStatus.map[firstDetect.x][firstDetect.y];
         if (secondDetect.type === 2 || secondDetect.type === 4) {
             move(box.object, ctx.option.base, dir); // 移动箱子
-            if (secondDetect.type === 4) {
-                renderIn(box.object);
-            } else {
-                renderOut(box.object);
-            };
             moveMap(ctx.status, ctx.curStatus.map, box, secondDetect.x, secondDetect.y); // 修改二维数组
             move(savedPeople.object, ctx.option.base, dir); // 移动人
             moveMap(ctx.status, ctx.curStatus.map, savedPeople, firstDetect.x, firstDetect.y);
