@@ -39,7 +39,7 @@ function createPromise(name) {
     });
 }
 
-export async function render(container, status, option) {
+export async function render(container, status, option, successBoxsObj) {
     let canvas = document.createElement('canvas');
     canvas.width = 600;
     canvas.height = 600;
@@ -93,6 +93,7 @@ export async function render(container, status, option) {
                     case 4: // 终点
                         drawImage(floor, j, i);
                         drawImage(des, j, i);
+                        successBoxsObj.len ++;
                         break;
                     case 5: // 人
                         drawImage(floor, j, i);
