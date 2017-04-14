@@ -39,7 +39,6 @@ export function checkCode(ctx) {
   };
   if (ctx._id === 2) {
     if (ctx.check[kCode.W]) {
-      // console.log('W');
       dir = 'up';
     }
     if (ctx.check[kCode.A]) {
@@ -60,5 +59,5 @@ export function checkCode(ctx) {
     rerender(ctx, ctx.curLevel + 1);
     return;
   }
-  update(ctx,dir);
+  update(ctx, dir);
 }

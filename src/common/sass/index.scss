@@ -1,60 +1,166 @@
+@media screen and (max-width: 800px) {
+    .wrap {
+        transform: scale(0.9)
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .wrap {
+        transform: scale(1.2)
+    }
+}
+
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
+    align-content: center;
+    height: 100%;
 }
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
 .wrap {
     position: relative;
     flex: 1;
+    justify-content: space-around;
 }
-.swap{
-    background:rgba(0, 0, 0, 0.6);
-    position:absolute;
+
+#index {
+    transition: all 1s ease-in-out;
+    width: 100%;
+    min-width: 1000px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: fixed;
     left: 0;
-    top:0;
-    right: 0;
-    bottom: 0;
-    z-index:2;
-    .tips{
-        width: 300px;
-        height:200px;
-        padding:10px;
-        position:absolute;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-        margin:auto;
-        background:#fff;
-        -webkit-border-radius:10px;
-        -moz-border-radius:10px;
-        border-radius:10px;
+    top: -100%;
+    z-index: 2;
+    .tips {
+        width: 35%;
+        height: 30%;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
     }
-    div.text{
-        height:80%;
-        display:flex;
+    div.text {
+        height: 80%;
+        display: flex;
         flex-direction: column;
         justify-content: center;
-        background:#DED6AD;
-        -webkit-border-radius:5px;
-        -moz-border-radius:5px;
-        border-radius:5px;
-        p{
-            text-align:center;
-            color:#fff;
-            line-height:25px;
+        background: #DED6AD;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        h1 {
+            text-align: center;
+            color: #fff;
+            line-height: 25px;
+            font-size: 50px;
         }
     }
-    .btn{
-        width:170px;
-        margin:5px auto;
-        button{
-            width:70px;
-            height:30px;
-            color:#fff;
-            border:none;
-            -webkit-border-radius:5px;
-            -moz-border-radius:5px;
-            border-radius:5px;
-            background:#DED6AD;
+    .btn {
+        width: 250px;
+        margin: 5px auto;
+        display: flex;
+        justify-content: space-between;
+        button {
+            width: 40%;
+            max-width: 200px;
+            height: 30px;
+            color: #fff;
+            border: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            background: #DED6AD;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    }
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    background: url('/static/img/bg.jpg');
+    background-size: 100% auto;
+    position: relative;
+}
+
+.wrap {
+    position: relative;
+}
+
+.swap {
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    .tips {
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+    div.text {
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: #DED6AD;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        p {
+            text-align: center;
+            color: #fff;
+            line-height: 25px;
+        }
+    }
+    .tips-btn {
+        width: 170px;
+        margin: 5px auto;
+        button {
+            width: 70px;
+            height: 30px;
+            color: #fff;
+            border: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            background: #DED6AD;
         }
     }
 }

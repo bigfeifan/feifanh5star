@@ -6,7 +6,6 @@ import { level } from './level.js';
 import {removeEvent} from './bindEvent.js';
 
 export function rerender(ctx, curLevel) {
-	console.log(ctx.keydownEvent);
 	removeEvent('body','keydown', ctx.keydownEvent);
 	removeEvent('body','keyup', ctx.keyupEvent);
 	removeEvent('body','click', ctx.clickEvent);
