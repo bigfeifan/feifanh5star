@@ -6,9 +6,8 @@ import {
 } from './level.js';
 export function init() {
     let container = document.querySelector('.wrap');
-    let container2 = document.querySelector('.wrap2');
-    let arr = level().level1;
-    window.onload = function () {
+    let arr = level()[0];
+    window.onload = function() {
         /* eslint-disable no-new */
         let player = 1;
         new Scence(container, arr, {

@@ -34,8 +34,9 @@ export function Scence(container, status, option) {
     this.option.base = this.option.base || 50;
     this.check = {};
     this.init = async function(curLevel) {
-        this.curLevel = curLevel || 1;
+        this.curLevel = curLevel || 0;
         this.container.innerHTML = '';
+        this.status = level()[this.curLevel];
         this.curStatus = await render(this.container, this.status, this.option, this.current);
         this.flag = false; // 是否已经开始执行
         this.timer = 0; // 时间戳
