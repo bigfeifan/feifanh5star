@@ -2,7 +2,6 @@ import { Scence } from './scence.js';
 import { level } from './level.js';
 export function init() {
     let container = document.querySelector('.wrap');
-
     let arr = level().level1;
     window.onload = function() {
         /* eslint-disable no-new */
