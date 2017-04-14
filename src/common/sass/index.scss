@@ -7,7 +7,10 @@ body {
     align-content: center;
     height: 100%;
 }
-
+.container {
+    display: flex;
+    justify-content: space-around;
+}
 .wrap {
     position: relative;
     flex: 1;
