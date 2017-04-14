@@ -1,7 +1,26 @@
 /**
  * 场景渲染
  */
-import { drawObject } from './drawObject.js';
+import {
+    drawObject
+} from './drawObject.js';
+
+
+function cloneObj(obj) {
+    var str;
+    var newobj = obj.constructor === Array ? [] : {};
+    if (typeof obj !== 'object') {
+        return;
+    } else if (window.JSON) {
+        str = JSON.stringify(obj);
+        newobj = JSON.parse(str);
+    } else {
+        for (var i in obj) {
+            newobj[i] = typeof obj[i] === 'object' ? cloneObj(obj[i]) : obj[i];
+        }
+    }
+    return newobj;
+};
 
 export async function render(container, status, option) {
     let canvas = document.createElement('canvas');
@@ -48,7 +67,7 @@ export async function render(container, status, option) {
         floor = data[1];
         des = data[2];
 
-        let map = Object.assign([], status);
+        let map = cloneObj(status);
         let people = null;
 
         for (let i in status) {
@@ -68,6 +87,8 @@ export async function render(container, status, option) {
                         drawImage(floor, j, i);
                         map[i][j] = {
                             name: 'box',
+                            x: i,
+                            y: j,
                             object: drawObject(j, i, 'box', option.base, container)
                         };
                         break;
@@ -79,6 +100,8 @@ export async function render(container, status, option) {
                         drawImage(floor, j, i);
                         map[i][j] = {
                             name: 'people',
+                            x: i,
+                            y: j,
                             object: drawObject(j, i, 'people', option.base, container)
                         };
                         people = {
@@ -93,7 +116,6 @@ export async function render(container, status, option) {
                 }
             }
         }
-
         return { map, people };
         // return current;
     });
