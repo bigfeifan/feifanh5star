@@ -41,8 +41,8 @@ function createPromise(name) {
 
 export async function render(container, status, option) {
     let canvas = document.createElement('canvas');
-    canvas.width = 600;
-    canvas.height = 600;
+    canvas.width = 500;
+    canvas.height = 500;
     container.appendChild(canvas);
     let myctx = canvas.getContext('2d');
 

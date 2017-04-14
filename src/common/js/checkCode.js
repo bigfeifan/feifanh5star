@@ -7,7 +7,7 @@ import {
 /**
  * @param {object} check 检测对象
  */
-export function checkCode(ctx,k) {
+export function checkCode(ctx) {
   var dir = ' ';
   var kCode = {
     UP: 38,
@@ -21,10 +21,7 @@ export function checkCode(ctx,k) {
     WHITESPACE: 32,
     N: 78
   };
-  ctx.check = [];
-  ctx.check[k] = true;
-  console.log(ctx.check);
-  // if (ctx._id === 1) {
+  if (ctx._id === 1) {
     if (ctx.check[kCode.UP]) {
       dir = 'up';
     }
@@ -37,8 +34,8 @@ export function checkCode(ctx,k) {
     if (ctx.check[kCode.RIGHT]) {
       dir = 'right';
     }
-  // };
-  // if (ctx._id === 2) {
+  };
+  if (ctx._id === 2) {
     if (ctx.check[kCode.W]) {
       // console.log('W');
       dir = 'up';
@@ -52,7 +49,7 @@ export function checkCode(ctx,k) {
     if (ctx.check[kCode.D]) {
       dir = 'right';
     }
-  // };
+  };
   if (ctx.check[kCode.WHITESPACE]) {
     rerender(ctx, ctx.curLevel);
     return;
