@@ -11,7 +11,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: resolve('dist'),
-    publicPath: env === 'production' ? 'https://github.com/bigfeifan/feifanh5star/' : '/dist/',
+    publicPath: env === 'production' ? '/feifanh5star/' : '/dist/',
     filename: 'bundle.js'
   },
 
