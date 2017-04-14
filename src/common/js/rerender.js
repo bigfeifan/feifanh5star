@@ -5,9 +5,5 @@
 import { level } from './level.js';
 
 export function rerender(ctx, curLevel) {
-    if (curLevel >= level().length) {
-        return false;
-    }
-    ctx.init(curLevel);
-    return true;
+    ctx.init(curLevel % level().length);
 }
