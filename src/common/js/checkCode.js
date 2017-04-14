@@ -27,7 +27,8 @@ export function checkCode(ctx) {
     dir = 'right';
   } 
   if (ctx.check[kCode.W]) {
-    console.log('W');
+    // console.log('W');
+     dir = 'up';
   } 
   if (ctx.check[kCode.A]) {
     console.log('A');
