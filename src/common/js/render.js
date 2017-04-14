@@ -97,7 +97,7 @@ export async function render(container, status, option) {
                 }
             }
         }
-
+        console.log(map,status);
         return { map, people };
         // return current;
     });

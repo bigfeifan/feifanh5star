@@ -21,6 +21,11 @@ export function update(ctx, dir) {
             moveMap(ctx.status, ctx.curStatus.map, box, secondDetect.x, secondDetect.y);
             move(savedPeople.object, ctx.option.base, dir); // 移动人
             moveMap(ctx.status, ctx.curStatus.map, savedPeople, firstDetect.x, firstDetect.y);
+            console.log(secondDetect.type);
+            if (secondDetect.type === 4) {
+                box.object.classList.remove('out');
+                box.object.classList.add('in');
+            }
         } else {
             // do nothing
         }
