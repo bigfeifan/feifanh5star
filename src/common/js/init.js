@@ -8,7 +8,10 @@ export function init() {
         new Scence(container, arr, {
             wallImage: './static/img/wall.png',
             floorImage: './static/img/floor.png',
-            desImage: './static/img/box-out.png'
+            desImage: './static/img/box-out.png',
+            boxImage: './static/img/box.png',
+            peopleImage: './static/img/people.png',
+            inImage: './static/img/box-in.png'
         });
     };
 }
