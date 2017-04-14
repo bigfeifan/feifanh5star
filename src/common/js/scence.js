@@ -10,7 +10,11 @@ import {
 import {
     level
 } from './level.js';
-
+import {
+    isEmpty
+} from './isEmpty.js';
+const downKeys = {}; // 摁下的键
+let timer = null; // 定时器
 
 // 把option中的属性作为scence的私有属性保存
 Scence.prototype._proxy = function (data) {
@@ -33,7 +37,7 @@ export function Scence(container, status, option) {
     this.curStatus = null; // json 保存当前状态的{map//当前状态的二维数组 people//包含x,y和{dom}obj}的对象}
     this.option.base = this.option.base || 50;
     this.check = {};
-    this.init = async function(curLevel) {
+    this.init = async function (curLevel) {
         this.curLevel = curLevel || 0;
         this.container.innerHTML = '';
         this.status = level()[this.curLevel];
@@ -43,23 +47,41 @@ export function Scence(container, status, option) {
         this._proxy(this.option);
         bindEvent('body', 'keydown', (e) => {
             e.preventDefault();
-            if (!this.flag) {
-                this.flag = true;
-                this.check[e.keyCode] = true;
-                this.timer = new Date().getTime();
-                checkCode(this);
-            } else {
-                var curTime = new Date().getTime();
-                if (curTime - this.timer < 100) {
-                    return;
-                }
-                checkCode(this);
-                this.timer = curTime;
-            }
+            if (!downKeys[e.keyCode]) {
+                downKeys[e.keyCode] = true;
+            };
+            if (!timer) {
+                timer = setInterval(() => {
+                    for (var i in downKeys) {
+                        checkCode(this, i);
+                    };
+                }, 500);
+            };
+
+            // if (!this.flag) {
+            //     this.flag = true;
+            //     this.check[e.keyCode] = true;
+            //     this.timer = new Date().getTime();
+            //     checkCode(this);
+            // } else {
+            //     var curTime = new Date().getTime();
+            //     if (curTime - this.timer < 100) {
+            //         return;
+            //     }
+            //     checkCode(this);
+            //     this.timer = curTime;
+            // }
         });
         bindEvent('body', 'keyup', (e) => {
-            this.check[e.keyCode] = false;
-            this.flag = false;
+            // if (this.check[e.keyCode] === true) {
+            //     this.check[e.keyCode] = false;
+            //     this.flag = false;
+            // }
+            delete downKeys[e.keyCode];
+            if (isEmpty(downKeys)) {
+                clearInterval(timer);
+                timer = null;
+            };
         });
     };
     this.init();
