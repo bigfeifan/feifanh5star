@@ -4,6 +4,7 @@ import {
 import {
     bindEvent
 } from './bindEvent.js';
+import {backChanged} from './backChanged.js';
 
 export function init() {
     const player1 = 1; // 用户编号
@@ -47,5 +48,6 @@ export function init() {
     window.onload = function () {
         /* eslint-disable no-new */
          document.querySelector('#index').style.cssText = 'top:0px';
+         backChanged('body', './static/img/bg.jpg');
     };
 }
