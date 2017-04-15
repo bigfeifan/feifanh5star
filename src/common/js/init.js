@@ -32,7 +32,7 @@ export function init() {
             boxImage: './static/img/box.png',
             peopleImage: './static/img/people.png',
             inImage: './static/img/box-in.png',
-            id: player1
+            id: player2
         });
         new Scence(container2, {
             wallImage: './static/img/wall.png',
@@ -41,7 +41,7 @@ export function init() {
             boxImage: './static/img/box.png',
             peopleImage: './static/img/people.png',
             inImage: './static/img/box-in.png',
-            id: player2
+            id: player1
         });
         document.querySelector('#index').style.top = '-100%';
     });
