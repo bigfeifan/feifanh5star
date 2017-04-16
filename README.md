@@ -61,16 +61,16 @@ npm start 启动服务器
 
 # 工作流程
 
-项目结构设置	—By 张正弦  
-webpack配置		—By 白航、张正弦
-移动机制流程图         -By李天惠 张棚贺
-关卡设计、人物箱子模型设计、render模块设计		—By 焦俊丽、李君怡
-render模块重构、rerender模块设计		—By 张鹏贺
-detectCollision模块、move模块设计		—By 李天惠
-双人键盘事件处理	—By 张正弦 
-success逻辑设计	—By 白航
-界面设计、游戏细节样式处理		—By 李天惠、李君怡
-模块解耦、接口调整、文档更新	—By 张正弦 
+项目结构设置	—By 张正弦    
+webpack配置		—By 白航、张正弦  
+移动机制流程图         -By李天惠 张棚贺  
+关卡设计、人物箱子模型设计、render模块设计		—By 焦俊丽、李君怡  
+render模块重构、rerender模块设计		—By 张鹏贺  
+detectCollision模块、move模块设计		—By 李天惠  
+双人键盘事件处理	—By 张正弦  
+success逻辑设计	—By 白航  
+界面设计、游戏细节样式处理		—By 李天惠、李君怡  
+模块解耦、接口调整、文档更新	—By 张正弦   
 
 
 # 总结
