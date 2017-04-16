@@ -32,14 +32,14 @@ npm start 启动服务器
 |-- src                                              // 项目源文件		
 |	|-- common                                   // 公共库
 |		|-- js                           // 公共js文件
-|           |-- backChanged.js   
+|           |-- backChanged.js          // 箱子移入移出样式切换
 |           |-- bindEvent.js            // 封装事件绑定
 |           |-- checkCode.js            // 检测按键对象
 |           |-- detectCollision.js      // 检测物体移动后的碰撞情况    
 |           |-- drawObject.js           // 可移动对象渲染                      
 |			|-- init.js                 // JS初始化文件
 |			|-- isEmpty                 // 判断对象是否为空
-|			|-- keyJuge.js              // 检测按键对象
+|			|-- keyJuge.js              // 检测按键是否是对应按键
 |           |-- level.js                // 关卡设计
 |           |-- move.js                 // 移动物体
 |			|-- render.js               // 初始化场景渲染
@@ -61,14 +61,16 @@ npm start 启动服务器
 
 # 工作流程
 
-## 2017.4.10
-搭建README.md文档基本结构		—By 张正弦  
-webpack配置		—By 白航  
-render模块		—By 焦俊丽、李君怡  
-README.md修改，webpack配置修改、项目结构调整		—By 张正弦  
-写移动机制流程图         -By李天惠 张棚贺
-## 2017.4.11
+项目结构设置	—By 张正弦  
+webpack配置		—By 白航、张正弦
+移动机制流程图         -By李天惠 张棚贺
+关卡设计、人物箱子模型设计、render模块设计		—By 焦俊丽、李君怡
+render模块重构、rerender模块设计		—By 张鹏贺
+detectCollision模块、move模块设计		—By 李天惠
+双人键盘事件处理	—By 张正弦 
+success逻辑设计	—By 白航
+界面设计、游戏细节样式处理		—By 李天惠、李君怡
+模块解耦、接口调整、文档更新	—By 张正弦 
 
-## 2017.4.12
 
 # 总结
